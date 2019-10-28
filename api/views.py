@@ -24,3 +24,26 @@ def get_proyectos_by_author(request, author_id):
         return Response( proyectos.get_by_author(author_id) , status=status.HTTP_200_OK)
     except Exception as e:
         return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+@api_view(['GET'])
+def get_votos_by_diputado(request, author_id):
+    try:
+        return Response( proyectos.get_by_author(author_id) , status=status.HTTP_200_OK)
+    except Exception as e:
+        return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+@api_view(['GET'])
+def get_gastos_by_diputado(request, author_id):
+    try:
+        return Response( proyectos.get_by_author(author_id) , status=status.HTTP_200_OK)
+    except Exception as e:
+        return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+@api_view(['GET'])
+def get_diputado_by_id(request, author_id):
+    try:
+        return Response( proyectos.get_by_author(author_id) , status=status.HTTP_200_OK)
+    except Exception as e:
+        return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
