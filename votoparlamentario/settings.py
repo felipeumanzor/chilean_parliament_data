@@ -25,7 +25,7 @@ SECRET_KEY = '!!7ozub$xdq5qvf(3%y0=9t!!t1b#2p#4k!w)!2**syprb-&&w'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['votoparlamentario.cl']
+ALLOWED_HOSTS = ['votoparlamentario.cl', '127.0.0.1']
 
 
 # Application definition
