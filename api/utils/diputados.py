@@ -12,4 +12,4 @@ def index():
     return diputados
 
 def get_by_id(id):
-    return get_db().diputados.find({}, { "_id":0 ,"Id":1 , "Nombre":1 , "ApellidoPaterno":1 , "ApellidoMaterno":1, "Militancias":1, "Sexo":1 , "FechaNacimiento":1 })
+    return list(get_db().diputados.find({ 'Id':str(id) }, { "_id":0 ,"Id":1 , "Nombre":1 , "ApellidoPaterno":1 , "ApellidoMaterno":1, "Militancias":1, "Sexo":1 , "FechaNacimiento":1, "gastos":1 }))[0]
