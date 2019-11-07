@@ -33,6 +33,7 @@ def index():
                 'FechaIngreso': 1, 
                 'Votaciones.VotacionProyectoLey.Id': 1, 
                 'Votaciones.VotacionProyectoLey.Resultado': 1, 
+                'Votaciones.VotacionProyectoLey.Fecha': 1,
                 'Materias': 1
             }
         }
