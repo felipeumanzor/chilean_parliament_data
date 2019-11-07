@@ -7,7 +7,36 @@ from django.http import HttpResponse
 
 def index():
     proyectos = []
-    for doc in get_db().proyectosdeley.find({}, { "_id":0 ,"NumeroBoletin":1 , "Nombre":1 , "TipoIniciativa":1 , "Materias":1, 'Votaciones.VotacionProyectoLey.Fecha':1 }).sort('Votaciones.VotacionProyectoLey.Fecha', DESCENDING):
+    for doc in get_db().proyectosdeley.aggregate([
+        {
+            '$match': {
+                'Votaciones.VotacionProyectoLey.Tipo.@Valor': '1'
+            }
+        }, {
+            '$unwind': {
+                'path': '$Votaciones.VotacionProyectoLey'
+            }
+        }, {
+            '$match': {
+                'Votaciones.VotacionProyectoLey.TipoVotacionProyectoLey.@Valor': '1'
+            }
+        }, {
+            '$sort': {
+                'Votaciones.VotacionProyectoLey.Fecha': -1
+            }
+        }, {
+            '$project': {
+                '_id': 0, 
+                'Id': 1, 
+                'NumeroBoletin': 1, 
+                'Nombre': 1, 
+                'FechaIngreso': 1, 
+                'Votaciones.VotacionProyectoLey.Id': 1, 
+                'Votaciones.VotacionProyectoLey.Resultado': 1, 
+                'Materias': 1
+            }
+        }
+    ]):
         proyectos.append(doc )
     return proyectos
 
