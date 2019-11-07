@@ -8,7 +8,9 @@ from django.http import HttpResponse
 def index():
     diputados = []
     for doc in get_db().diputados.find(
-        {},
+        {
+            "actual": True
+        },
         {
             "_id": 0,
             "Id": 1,
@@ -17,8 +19,7 @@ def index():
             "ApellidoMaterno": 1,
             "Militancias": 1,
             "Sexo": 1,
-            "FechaNacimiento": 1,
-            "Actual": True,
+            "FechaNacimiento": 1
         },
     ):
         diputados.append(doc)
