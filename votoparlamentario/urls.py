@@ -1,4 +1,13 @@
-from api.views import get_diputados, get_proyectos, get_proyectos_by_author, get_votos_by_diputado, get_gastos_by_diputado, get_diputado_by_id
+from api.views import (
+    get_diputados,
+    get_proyectos,
+    get_proyectos_by_author,
+    get_votos_by_diputado,
+    get_gastos_by_diputado,
+    get_diputado_by_id,
+    get_proyecto_by_id,
+)
+
 """votoparlamentario URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -18,12 +27,12 @@ from django.contrib import admin
 from django.urls import path
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('diputados/', get_diputados ),
-    path('diputados/<diputado_id>/', get_diputado_by_id),
-    path('diputados/<diputado_id>/votos/', get_votos_by_diputado),
-    path('diputados/<diputado_id>/gastos/', get_gastos_by_diputado),
-    path('proyectos/', get_proyectos ),
-    path('proyectos/by_author/<author_id>/', get_proyectos_by_author )
-
+    path("admin/", admin.site.urls),
+    path("diputados/", get_diputados),
+    path("diputados/<diputado_id>/", get_diputado_by_id),
+    path("diputados/<diputado_id>/votos/", get_votos_by_diputado),
+    path("diputados/<diputado_id>/gastos/", get_gastos_by_diputado),
+    path("proyectos/", get_proyectos),
+    path("proyectos/by_author/<author_id>/", get_proyectos_by_author),
+    path("proyectos/<proyecto_id>/", get_proyecto_by_id),
 ]

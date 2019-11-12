@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ["votoparlamentario.cl", "api.votoparlamentario.cl", "127.0.0.1"
 INSTALLED_APPS = [
     "django.contrib.admin",
     "corsheaders",
+    "rest_framework",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
