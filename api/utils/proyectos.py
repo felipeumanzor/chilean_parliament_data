@@ -39,16 +39,18 @@ def index():
 def get_by_id(id):
     return list(
         get_db().proyectosdeley.find(
-            {},
+            {"Id": str(id)},
             {
-                "_id": id,
+                "_id": 0,
                 "Id": 1,
                 "Nombre": 1,
-                "ApellidoPaterno": 1,
-                "ApellidoMaterno": 1,
-                "Militancias": 1,
-                "Sexo": 1,
-                "FechaNacimiento": 1,
+                "Autores": 1,
+                "Materias": 1,
+                "MinisteriosPatrocinantes": 1,
+                "Votaciones": 1,
+                "TotalNo": 1,
+                "TotalSi": 1,
+                "TotalDispensado": 1,
             },
         )
     )[0]

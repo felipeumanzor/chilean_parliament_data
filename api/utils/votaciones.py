@@ -27,6 +27,7 @@ def get_by_diputado(id_diputado):
                     "Fecha": 1,
                     "Resultado": 1,
                     "Votos.Voto.OpcionVoto": 1,
+                    "Nombre": 1,
                 }
             },
             {"$limit": 50},
