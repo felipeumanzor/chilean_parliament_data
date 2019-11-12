@@ -37,19 +37,21 @@ def index():
 
 
 def get_by_id(id):
-    return get_db().proyectosdeley.find(
-        {},
-        {
-            "_id": id,
-            "Id": 1,
-            "Nombre": 1,
-            "ApellidoPaterno": 1,
-            "ApellidoMaterno": 1,
-            "Militancias": 1,
-            "Sexo": 1,
-            "FechaNacimiento": 1,
-        },
-    )
+    return list(
+        get_db().proyectosdeley.find(
+            {},
+            {
+                "_id": id,
+                "Id": 1,
+                "Nombre": 1,
+                "ApellidoPaterno": 1,
+                "ApellidoMaterno": 1,
+                "Militancias": 1,
+                "Sexo": 1,
+                "FechaNacimiento": 1,
+            },
+        )
+    )[0]
 
 
 def get_by_author(author_id):
